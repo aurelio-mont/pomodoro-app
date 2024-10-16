@@ -1,9 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Timer({ time, setTime }) {
+  const minutes = Math.floor(time / 60)
+    .toString()
+    .padStart(2, "0");
+  const seconds = (time % 60).toString().padStart(2, "0");
   return (
     <View style={styles.container}>
-      <Text style={styles.time}>{time}</Text>
+      <Text style={styles.time}>
+        {minutes}:{seconds}
+      </Text>
     </View>
   );
 }
